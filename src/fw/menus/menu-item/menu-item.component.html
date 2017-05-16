@@ -1,9 +1,10 @@
-<div class="menu-item">>
-  <span class="glyphicon{{item.icon }}" 
-  <span {{item.text.toUpperCase() }}" 
-  <span class="glyphicon{{item.icon }}"    
-  text: string,
-    icon: string,
-    route: string,
-    submenu: Array<MenuItem>> </span>
+<div class="menu-item"
+  [routerLink] = "item.route" 
+  routerLinkActive = "router-link-active"
+  [ngClass] = "{'vertical-menu': menuService.isVertical }"
+  (click) = "menuService.showingLeftSideMenu=false "> 
+  <!-- use brackets to bind typescript variables-->
+  <!--routerLinkActive - Lets you add a CSS class to an element when the link's route becomes active.-->
+  <span class="glyphicon {{item.icon }} "> </span>
+  <span> {{item.text.toUpperCase() }}  </span>
 </div>
