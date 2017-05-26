@@ -8,26 +8,45 @@ import { RouterModule} from '@angular/router'
 import { AppComponent } from './app.component';
 import { FwModule } from '../fw/fw.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { CountriesComponent } from './countries/countries.component';
 import { SettingsComponent} from './settings/settings.component';
-import { appRoutes} from './app.routing'
+import { appRoutes} from './app.routing';
+import { CountryDetailComponent } from './country-detail/country-detail.component';
+import { CountryListComponent } from './country-list/country-list.component';
+import { CountryMaintComponent } from './country-maint/country-maint.component';
+
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { AuthenticatedUserComponent } from './authenticated-user/authenticated-user.component';
+
+import { UserService} from './services/user.service';
+import { UserApi} from '../fw/users/user-api';
+import { AuthGuard} from './services/auth-guard.service';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    CountriesComponent,
     DashboardComponent,
-    CountriesComponent,
-    SettingsComponent
+    SettingsComponent,
+    CountryDetailComponent,
+    CountryListComponent,
+    CountryMaintComponent,
+    AuthenticatedUserComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     FwModule,
+    BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    UserService,
+    {provide: UserApi, useExisting: UserService},
+    AuthGuard
+  ],
+  bootstrap: [AppComponent],
+
+
 })
 export class AppModule { }

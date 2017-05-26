@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule} from '@angular/router'
+import { RouterModule} from '@angular/router';
+import { FormsModule} from '@angular/forms';
 
 import { FrameworkBodyComponent } from './framework-body/framework-body.component';
 import { ContentComponent } from './content/content.component';
@@ -13,12 +14,17 @@ import {ScreenLarge} from './directives/screen-large.directive';
 import {ScreenBelowLarge} from './directives/screen-below-large.directive';
 import {MenuService } from './services/menu.service' ;
 import {MenuComponent} from './menus/menu/menu.component';
-import {MenuItemComponent} from './menus/menu-item/menu-item.component'
+import {MenuItemComponent} from './menus/menu-item/menu-item.component';
+import {PopupMenuComponent} from './menus/popup-menu/popup-menu.component';
+import {SignInComponent} from './users/sign-in/sign-in.component';
+import {RegisterUserComponent} from './users/register-user/register-user.component';
+
 
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    FormsModule
   ],
   declarations: [
     FrameworkBodyComponent,
@@ -29,7 +35,10 @@ import {MenuItemComponent} from './menus/menu-item/menu-item.component'
     ScreenLarge,
     ScreenBelowLarge,
     MenuComponent,
-    MenuItemComponent
+    MenuItemComponent,
+    PopupMenuComponent,
+    SignInComponent,
+    RegisterUserComponent
   ],
 
 providers:[
