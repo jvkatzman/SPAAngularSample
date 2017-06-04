@@ -20,7 +20,8 @@ import { AuthenticatedUserComponent } from './authenticated-user/authenticated-u
 import { UserService} from './services/user.service';
 import { UserApi} from '../fw/users/user-api';
 import { AuthGuard} from './services/auth-guard.service';
-
+import { AppDataService } from './services/app-data.service';
+import { CountryPanelComponent } from './panels/country-panel/country-panel.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { AuthGuard} from './services/auth-guard.service';
     CountryDetailComponent,
     CountryListComponent,
     CountryMaintComponent,
-    AuthenticatedUserComponent
+    AuthenticatedUserComponent,
+    CountryPanelComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +45,8 @@ import { AuthGuard} from './services/auth-guard.service';
   providers: [
     UserService,
     {provide: UserApi, useExisting: UserService},
-    AuthGuard
+    AuthGuard,
+    AppDataService
   ],
   bootstrap: [AppComponent],
 
